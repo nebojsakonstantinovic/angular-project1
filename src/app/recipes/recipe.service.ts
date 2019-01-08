@@ -11,13 +11,13 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
-    'A test recipe',
-    'this is a test',
-    'https://www.nps.gov/subjects/camping/images/recipe_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false',
-    [
-      new Ingredient('Meat', 1),
-      new Ingredient('French Fries', 20),
-    ],
+      'A test recipe',
+      'this is a test',
+      'https://www.nps.gov/subjects/camping/images/recipe_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false',
+      [
+        new Ingredient('Meat', 1),
+        new Ingredient('French Fries', 20),
+      ],
     ),
     new Recipe(
       'Another test recipe',
@@ -27,10 +27,15 @@ export class RecipeService {
         new Ingredient('Buns', 2),
         new Ingredient('Meat', 1),
       ],
-      ),
+    ),
   ];
 
   constructor(private slService: ShoppingListService) { }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     // returns new object

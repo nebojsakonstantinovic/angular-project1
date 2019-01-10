@@ -20,6 +20,7 @@ import { RecipeService } from './recipes/recipe.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { SingupComponent } from './auth/singup/singup.component';
 import { SinginComponent } from './auth/singin/singin.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SinginComponent } from './auth/singin/singin.component';
   providers: [
     ShoppingListService,
     RecipeService,
-    DataStorageService
+    DataStorageService,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })
